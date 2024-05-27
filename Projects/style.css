@@ -1,0 +1,104 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* wrap */ 
+
+.tree{
+    width:200px;
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.leaves, 
+.wood{
+       height: 50%; 
+}
+
+.leaves{
+    width: 100%;
+    position: relative;
+    transform: translateY(40px)
+    z-index: 1;
+}
+
+.wood{
+    width: 40px;
+    background-color: #e58749;
+    position: relative;
+}
+
+.wood:before,
+.wood:after{
+    position: absolute;
+    content: "";
+    background-color: #e58749;
+    width: 40px;
+    height: 60px;
+}
+
+.wood::before {
+    top: -50px;
+    transform-origin: right bottom;
+    transform: rotateZ(-30deg);
+}
+
+.wood::after{
+   top:-60px;
+   transform-origin: left bottom; 
+   transform: rotateZ(30deg);
+}
+
+.leaf
+{
+    width: 100px;
+    height: 100px;
+    border: 1px solid purple;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
+    transition: transform 0.5s;
+}
+
+#one{
+    background-color: #ffb7c5;
+    top: -15px;
+    left: 25%
+}
+
+#two{
+    bottom: 0;
+    left: 5%;
+    background-color: #ffb7c5;
+}
+
+#three{
+    bottom: 0;
+    right: 5%;
+    background-color: #ffb7c5;
+}
+
+/* hover */
+
+.tree:hover .leaf{
+    transform: scale(1);
+}
+
+.tree:hover #one{
+    transition-delay:  0.4s;
+}
+
+.tree:hover #two{
+    transition-delay:  0.2s;
+}
+
+.tree:hover #three{
+    transition-delay:  0s;
+}
